@@ -49,7 +49,7 @@ mysql> quit;
 1. Ansible
   * git clone https://github.com/franck-art/zabbix-server-playbook.git
   * cd zabbix-server-playbook/
-  * Modify the host and main.yml files in the vars / directory
+  * Modify the host and main.yml files in the /vars  directory
   * ansible-playbook zabbix_playbook.yml
 2. Jenkins
   * git clone https://github.com/franck-art/zabbix-server-playbook.git
