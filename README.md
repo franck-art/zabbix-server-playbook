@@ -10,7 +10,8 @@
 
 ### Installation of prerequisites
 
-1. NB:  These installations will be done on the zabbix server
+1. On zabbix server
+NB:  These installations will be done on the zabbix server
    
    ```
    sudo yum install git -y
