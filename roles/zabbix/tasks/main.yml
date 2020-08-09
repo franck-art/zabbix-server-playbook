@@ -68,6 +68,7 @@
 
 - name: Connect to mysql database
   mysql_db:
+    name: zabbix
     login_user: root
     login_password: 
  
