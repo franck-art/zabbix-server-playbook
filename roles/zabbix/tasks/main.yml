@@ -40,7 +40,7 @@
 
 - name: Import data for server with mysql
   shell: zcat /usr/share/doc/zabbix-server-mysql*/create.sql.gz | mysql -uzabbix -p zabbix
-  run_once: true
+  ignore_errors: yes
   args:
     warn: no
 
