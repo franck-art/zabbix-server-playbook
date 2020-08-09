@@ -1,13 +1,18 @@
 ---
 
 
-mysql_root_password: 
+mysql_root_password: ""
 mysql_databases:
   - name: zabbix
     encoding: utf8
-    collation: latin1_general_ci
+    collation: utf8_general_ci
 mysql_users:
   - name: zabbix
-    host: "%"
-    password: 
+    host: "localhost"
+    password: ""
     priv: "zabbix.*:ALL"
+
+
+mysql_packages:
+  - mysql-server
+  - MySQL-python

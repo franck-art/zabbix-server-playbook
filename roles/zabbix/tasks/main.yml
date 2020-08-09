@@ -38,40 +38,23 @@
     state: installed
 
 
-- name: Enable mysql packages
-  shell: wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
-  args:
-    warn: no
 
-- name: Install mysql package
-  shell: wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
-  args:
-    warn: no
-
-- name: update all packages 
+- name: install PYTHON Module
   yum:
-    name: '*'
-    update_only: yes
-    update_cache: yes
-    state: latest
-
-- name: install mysql server
-  yum:
-    name: mysql-server 
-    state: installed
-
-- name: Restart service docker
-  service:
-    name: mysqld
-    state: started
-    enabled: yes
+    name: python2-PyMySQL
+    state: present
 
 
-- name: Import file.sql similar to mysql -u <username> -p <password> < hostname.sql
+- name: Import data for DB
   mysql_db:
-    state: import
-    name: zabbix
-    target: /usr/share/doc/zabbix-server-mysql*/create.sql.gz
+      login_host: "localhost"
+      login_password: ""
+      login_user: "zabbix"
+      login_port: "3306"
+      name: "zabbix"
+      state: import
+      target: "/usr/share/doc/zabbix-server-mysql-4.0.23/create.sql.gz"
+  ignore_errors: yes
 
 - name: copy zabbix_server.j2 in zabbix-server.conf
   template:
@@ -82,7 +65,7 @@
     mode: '0644'
 
 
-- name: Restart service docker
+- name: Restart service zabbix-server
   service:
     name: zabbix-server
     state: started
