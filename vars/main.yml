@@ -1,0 +1,13 @@
+---
+
+
+mysql_root_password: 
+mysql_databases:
+  - name: zabbix
+    encoding: utf8
+    collation: latin1_general_ci
+mysql_users:
+  - name: zabbix
+    host: "%"
+    password: 
+    priv: "zabbix.*:ALL"

@@ -6,8 +6,14 @@
   gather_facts: yes
   become: true
 
+   vars_files:
+    - vars/main.yml
+
   vars:
     server_address: 34.204.172.163
 
   roles:
+
+    - { role: geerlingguy.mysql }
     - { role: zabbix }
+    
