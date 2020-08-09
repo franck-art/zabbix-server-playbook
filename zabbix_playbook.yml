@@ -2,12 +2,12 @@
 
 # zabbix playbook
 - name: Zabbix Playbook Installation
-  hosts: local
+  hosts: server
   gather_facts: yes
   become: true
 
   vars:
-    server_address: 54.144.21.201
+    server_address: 34.204.172.163
 
   roles:
     - { role: zabbix }
