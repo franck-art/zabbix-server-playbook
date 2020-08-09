@@ -1,0 +1,114 @@
+---
+
+# Installation of zabbix
+
+- name: install wget
+  yum:
+    name: wget
+    state: installed 
+
+
+- name: install zabbix packages
+  yum: 
+    name:  https://repo.zabbix.com/zabbix/4.0/rhel/7/x86_64/zabbix-release-4.0-1.el7.noarch.rpm
+    state: present
+
+
+- name: Enable zabbix  packages
+  shell: yum-config-manager --enable rhel-7-server-optional-rpms
+  args:
+    warn: no
+
+
+- name: install zabbix server
+  yum:
+    name: zabbix-server-mysql
+    state: installed
+
+
+- name: install zabbix proxy
+  yum:
+    name: zabbix-proxy-mysql
+    state: installed
+
+
+- name: install zabbix web
+  yum:
+    name: zabbix-web-mysql
+    state: installed
+
+
+- name: Import data for server with mysql
+  shell: zcat /usr/share/doc/zabbix-server-mysql*/create.sql.gz | mysql -uzabbix -p zabbix
+  run_once: true
+  args:
+    warn: no
+
+
+- name: copy zabbix_server.j2 in zabbix-server.conf
+  template:
+    src: templates/zabbix_server.j2
+    dest: /etc/zabbix/zabbix_server.conf
+    owner: root
+    group: root
+    mode: '0644'
+
+
+- name: Restart service docker
+  service:
+    name: zabbix-server
+    state: started
+    enabled: yes
+
+
+- name: copy zabbix web zabbix.j2 in zabbix.conf
+  template:
+    src: templates/zabbix.j2
+    dest: /etc/httpd/conf.d/zabbix.conf
+    owner: root
+    group: root
+    mode: '0644'
+
+
+- name: activate communication between web interface and zabbix server
+  shell: setsebool -P httpd_can_connect_zabbix on
+  args:
+    warn: no
+
+
+- name: permit web interface to connect into database server
+  shell: setsebool -P httpd_can_network_connect_db on
+  args:
+    warn: no
+
+
+- name: Restart web service
+  service:
+    name: httpd
+    state: restarted
+
+
+- name: install zabbix agent
+  yum:
+    name: zabbix-agent
+    state: installed
+
+
+- name: copy zabbix agent zabbix-agentd.j2 in zabbix-agentd.conf
+  template:
+    src: templates/zabbix_agentd.j2
+    dest: /etc/zabbix/zabbix_agentd.conf
+    owner: root
+    group: root
+    mode: '0644'
+
+
+- name: Restart web service
+  service:
+    name: zabbix-agent
+    state: started
+
+
+
+
+

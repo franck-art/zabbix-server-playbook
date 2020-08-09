@@ -1,0 +1,13 @@
+---
+
+# zabbix playbook
+- name: Zabbix Playbook Installation
+  hosts: localhost
+  gather_facts: yes
+  become: true
+
+  vars:
+    server_address: localhost
+
+  roles:
+    - role: zabbix
