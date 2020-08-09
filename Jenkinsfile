@@ -15,6 +15,13 @@ pipeline {
             }
          }
         
+             stage("Install ansible role dependencies") {
+            agent any
+                   steps {
+                       sh 'ansible-galaxy install  -r roles/requirements.yml'
+                   }
+               }
+
         
               stage("Install zabbix server") {
              // agent any

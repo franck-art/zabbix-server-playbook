@@ -66,23 +66,6 @@
     state: started
     enabled: yes
 
-- name: Connect to mysql database
-  mysql_db:
-    name: zabbix
-    login_user: root
-    login_password: 
- 
-- name: Create a new database with name 'zabbix'
-  mysql_db:
-    name: zabbix
-    state: present
-
-- name: Create database user with password and all database privileges and 'WITH GRANT OPTION'
-  mysql_user:
-    name: zabbix
-    password: ''
-    priv: '*.*:ALL,GRANT'
-    state: present
 
 - name: Import file.sql similar to mysql -u <username> -p <password> < hostname.sql
   mysql_db:
