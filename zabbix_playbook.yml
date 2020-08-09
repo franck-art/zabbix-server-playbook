@@ -2,7 +2,7 @@
 
 # zabbix playbook
 - name: Zabbix Playbook Installation
-  hosts: localhost
+  hosts: local
   gather_facts: yes
   become: true
 
