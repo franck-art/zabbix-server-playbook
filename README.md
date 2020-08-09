@@ -55,6 +55,7 @@ mysql> quit;
   * cd zabbix-server-playbook/
   * Modify the host and main.yml files in the vars / directory
   * Push on Jenkins
+  
 NB: Make sure that jenkins is correctly configured
 
 ###### Connect to the zabbix web interface
