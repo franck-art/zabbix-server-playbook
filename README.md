@@ -69,3 +69,5 @@ To access the Zabbix home page, type the url in your browser:
 * Username: Admin
 * Password: zabbix
 
+**NB**: Make sure that the listening port of the zabbix server and agents is open: **10050**
+
