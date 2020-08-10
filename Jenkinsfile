@@ -3,9 +3,9 @@ pipeline {
     stages {
         
         stage('Prepare ansible environment') {
-        //    agent any
+    
             environment {
-               // VAULTKEY = credentials('vaultkey')
+  
                 DEVOPSKEY = credentials('devopskey')
             }
             steps {
@@ -15,16 +15,9 @@ pipeline {
             }
          }
         
-             stage("Install ansible role dependencies") {
-            agent any
-                   steps {
-                       sh 'ansible-galaxy install  -r roles/requirements.yml'
-                   }
-               }
-
         
               stage("Install zabbix server") {
-             // agent any
+      
                    when {
                       expression { GIT_BRANCH == 'origin/master' }
                    }
