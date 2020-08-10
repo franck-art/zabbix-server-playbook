@@ -64,3 +64,8 @@ NB: Make sure that jenkins is correctly configured
 To access the Zabbix home page, type the url in your browser:
 `http://@ip/zabbix`
 
+
+--> zabbix web interface connection:
+* Username: Admin
+* Password: zabbix
+
