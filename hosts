@@ -1,2 +1,2 @@
 [server]
-35.153.106.114  ansible_user=centos ansible_ssh_common_args='-o StrictHostKeyChecking=no'  ansible_python_interpreter=/usr/bin/python 
+54.172.64.62  ansible_user=centos ansible_ssh_common_args='-o StrictHostKeyChecking=no'  ansible_python_interpreter=/usr/bin/python 

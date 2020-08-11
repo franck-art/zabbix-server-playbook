@@ -8,7 +8,7 @@
 
 
   vars:
-    server_address: 35.153.106.114
+    server_address: 54.172.64.62
 
   roles:
 
