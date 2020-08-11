@@ -18,6 +18,7 @@ NB:  These installations will be done on the zabbix server
    sudo yum install git -y
    sudo yum -y install epel-release 
    sudo yum install ansible -y
+   sudo yum install wget -y
    wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
    sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm
    sudo yum update -y
