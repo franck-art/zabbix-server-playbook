@@ -10,9 +10,13 @@
 
 ### Installation of prerequisites
 
-1. On zabbix server
+1. zabbix server
 
-NB:  These installations will be done on the zabbix server
+We have two methods:
+
+- In CentOs server, follow these steps  
+These installations will be done on the zabbix server. 
+if you are on aws, use the second dot
    
    ```
    sudo yum install git -y
@@ -25,16 +29,19 @@ NB:  These installations will be done on the zabbix server
    sudo yum install mysql-server -y
    sudo systemctl start mysqld
    ```
+ - On aws, load the zabbix stack named zabbix.yml
    
-   NB: Installation of zabbix agent can be crossed because it does not enter the installation of zabbix server. the goal was to do a much more complete job, which is why this part was added
 
 2. Installing the zabbix agent on the servers to be supervised
+
+NB: Installation of zabbix agent can be crossed because it does not enter the installation of zabbix server. the goal was to do a much more complete job, which is why this part was added
 
 ```
    sudo rpm -ivh https://repo.zabbix.com/zabbix/4.0/rhel/7/x86_64/zabbix-release-4.0-1.el7.noarch.rpm
    sudo yum install zabbix-agent
    sudo service zabbix-agent start
 ```
+
 
 #### Configuring the mysql server on zabbix server
 
