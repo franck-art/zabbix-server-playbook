@@ -8,7 +8,7 @@
 
 
   vars:
-    zabbix_server_address: 54.172.64.62
+    zabbix_server_address: 52.86.118.163
 
   roles:
 
