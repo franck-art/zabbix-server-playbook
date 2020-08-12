@@ -48,8 +48,8 @@
 - name: Import data for DB
   mysql_db:
       login_host: "{{ zabbix_host }}"
-      login_password: "zabbix_password"
-      login_user: "zabbix_user"
+      login_password: "{{ zabbix_password }}"
+      login_user: "{{ zabbix_user }}"
       login_port: "{{ zabbix_port_db }}"
       name: "{{ zabbix_db_name }}"
       state: import
