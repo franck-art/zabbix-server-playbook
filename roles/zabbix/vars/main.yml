@@ -1,0 +1,7 @@
+---
+
+# zabbix server address
+server_address: "{{ zabbix_server_address }}"
+
+# http timezone zabbix server
+http_timezone_server: "php_value date.timezone Europe/Riga"

@@ -10,12 +10,12 @@
 
 - name: install zabbix packages
   yum: 
-    name:  https://repo.zabbix.com/zabbix/4.0/rhel/7/x86_64/zabbix-release-4.0-1.el7.noarch.rpm
+    name:  "{{ zabbix_package }}"
     state: present
 
 
 - name: Enable zabbix  packages
-  shell: yum-config-manager --enable rhel-7-server-optional-rpms
+  shell: "{{ manage_config }}"
   args:
     warn: no
 
@@ -47,13 +47,13 @@
 
 - name: Import data for DB
   mysql_db:
-      login_host: "localhost"
-      login_password: ""
-      login_user: "zabbix"
-      login_port: "3306"
-      name: "zabbix"
+      login_host: "{{ zabbix_host }}"
+      login_password: "zabbix_password"
+      login_user: "zabbix_user"
+      login_port: "{{ zabbix_port_db }}"
+      name: "{{ zabbix_db_name }}"
       state: import
-      target: "/usr/share/doc/zabbix-server-mysql-4.0.23/create.sql.gz"
+      target: "{{ zabbix_target }}"
   ignore_errors: yes
 
 - name: copy zabbix_server.j2 in zabbix-server.conf
