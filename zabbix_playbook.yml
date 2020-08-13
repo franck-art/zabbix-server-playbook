@@ -8,7 +8,7 @@
 
 
   vars:
-    zabbix_server_address: 127.0.0.1
+    zabbix_server_address: 54.144.136.87
 
   roles:
 
