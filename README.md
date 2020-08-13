@@ -58,12 +58,13 @@ mysql> quit;
   * git clone https://github.com/franck-art/zabbix-server-playbook.git
   * cd zabbix-server-playbook/
   * Modify the host and zabbix_playbook.yml
-  * ansible-playbook zabbix_playbook.yml
+  * ansible-playbook --private-key /path/of/your/private/key   zabbix_playbook.yml
 2. Jenkins
   * git clone https://github.com/franck-art/zabbix-server-playbook.git
   * cd zabbix-server-playbook/
   * Modify the host and zabbix_playbook.yml
-  * Push on Jenkins
+  * Push on github
+  * Configure Pipeline and webhook in Jenkins and deploy Zabbix-server
   
 NB: Make sure that jenkins is correctly configured
 
