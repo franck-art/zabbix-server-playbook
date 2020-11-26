@@ -58,7 +58,7 @@ mysql> quit;
   * git clone https://github.com/franck-art/zabbix-server-playbook.git
   * cd zabbix-server-playbook/
   * Modify the host and zabbix_playbook.yml
-  * ansible-playbook --private-key /path/of/your/private/key   zabbix_playbook.yml
+  * ansible-playbook --private-key /path/of/your/private/key  -i path/of/inventory/path  zabbix_playbook.yml
 2. Jenkins
   * git clone https://github.com/franck-art/zabbix-server-playbook.git
   * cd zabbix-server-playbook/
