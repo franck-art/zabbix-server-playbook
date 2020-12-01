@@ -14,7 +14,7 @@
 
 We have two methods:
 
-- In CentOs server, follow these steps  
+- In **CentOs 7** server, follow these steps  
 These installations will be done on the zabbix server. 
 if you are on aws, use the second dot
    
