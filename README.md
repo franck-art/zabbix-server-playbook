@@ -4,6 +4,7 @@
 
 ## prerequisite
 
+* CentOs 7
 * Ansible
 * Git
 * Mysql server
